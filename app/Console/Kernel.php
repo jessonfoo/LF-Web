@@ -15,6 +15,20 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         //
     ];
+	/**
+	 * The application's global HTTP middleware stack.
+	 * These middleware are run during every request to your application.
+	 *
+	 * @var array
+	 */
+	protected $middleware = [
+		\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+		\App\Http\Middleware\SetLocale::class,
+		\Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
+		\App\Http\Middleware\TrimStrings::class,
+		\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+		\App\Http\Middleware\TrustProxies::class,
+	];
 
     /**
      * Define the application's command schedule.
