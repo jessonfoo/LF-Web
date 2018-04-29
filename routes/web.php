@@ -10,7 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect( '/', '/' . locale()->current(), 301 );
+	Route::prefix( '{locale}' )->group( function () {
+		
+		Route::get( '', 'ViewController@index' );
+//		Route::get( 'users/{id}', 'UserController@show' );
+//		Route::get( 'users/{id}', 'UserController@index' );
+	
+	} );
